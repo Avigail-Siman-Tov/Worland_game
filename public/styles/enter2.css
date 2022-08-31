@@ -1,4 +1,3 @@
-
 body {
   /* font-family: "Sofia", sans-serif; */
   font-family: 'Black Ops One', cursive;
@@ -15,27 +14,28 @@ body {
 
 }
 
-
-.level_easy{
+.level_easy {
   padding: 30px;
   transform: translate(0%, 0%);
 
 
 }
-.level_normal{
+
+.level_normal {
   transform: translate(0%, 0%);
   padding: 30px;
 
 }
-.level_hard{
+
+.level_hard {
   transform: translate(0%, 0%);
   padding: 30px;
- 
+
 }
 
 .easy {
   font-family: 'Black Ops One', cursive;
-  margin-top:30px;
+  margin-top: 30px;
   width: 150px;
   height: 150px;
   font-size: 10px;
@@ -51,7 +51,7 @@ body {
 
 .normal {
   font-family: 'Black Ops One', cursive;
-  margin-top:30px;
+  margin-top: 30px;
   font-size: 20px;
   width: 150px;
   height: 150px;
@@ -64,7 +64,7 @@ body {
 
 .hard {
   font-family: 'Black Ops One', cursive;
-  margin-top:30px;
+  margin-top: 30px;
   width: 150px;
   height: 150px;
   font-size: 10px;
@@ -85,6 +85,8 @@ body {
   align-items: center;
 }
 
+/* Background picture */
+
 .img {
   width: 100%;
   height: 100%;
@@ -96,13 +98,14 @@ body {
 .background {
 
   direction: rtl;
-  right:100px;
-left:-100px;
-position: absolute;
-top: 0%;
-width: 100%;
+  right: 100px;
+  left: -100px;
+  position: absolute;
+  top: 0%;
+  width: 100%;
 }
 
+/* the audio button */
 #button {
   font-size: 16px;
   color: #eee;
@@ -125,6 +128,7 @@ width: 100%;
   opacity: 60%;
 }
 
+/* The animation of the buttons of the levels */
 .animate {
   animation-duration: 0.75s;
   animation-delay: 0.5s;

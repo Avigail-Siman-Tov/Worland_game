@@ -1,15 +1,15 @@
-
 @import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
 
-
+/* Background picture */
 .img {
-  top:0%;
+  top: 0%;
   width: 100%;
   height: 100%;
   position: absolute;
   opacity: 30%;
 }
-.con {
+
+.content {
   position: absolute;
   left: 50%;
   top: 80%;
@@ -23,7 +23,7 @@
   width: 200px;
   height: 60px;
   position: absolute;
-  
+
 }
 
 .btn {
@@ -41,7 +41,7 @@
 
 .btn:hover {
   transition: 1s ease-in-out;
-  background:rgb(136, 207, 136);
+  background: rgb(136, 207, 136);
 }
 
 
@@ -51,10 +51,10 @@
   font-weight: 100;
   font-weight: bold;
 }
+
 .container {
-  position:fixed;
+  position: fixed;
   min-height: 100vh;
-  /* position: relative; */
   width: 100vw;
   display: flex;
   background-color: white;
@@ -64,14 +64,16 @@
 
 
 }
+
+/* the audio button */
 #button {
   font-size: 16px;
   color: #eee;
   position: absolute;
   width: 50px;
   padding: 15px;
-  top:510px;
-  left:1220px;
+  top: 510px;
+  left: 1220px;
   border: none;
   border-radius: 2px;
   outline: none;
@@ -85,13 +87,16 @@
 #button.fade:hover {
   opacity: 60%;
 }
+
+/* Animation for the game */
 @import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
 
 .wrapper {
   width: 100vw;
-  margin-top:-300px;
+  margin-top: -300px;
   margin-left: 400px;
 }
+
 .wrapper span {
   -webkit-text-stroke-width: 1.25px;
   -webkit-text-stroke-color: #000;
@@ -103,24 +108,31 @@
   font-family: "Titan One", cursive;
   color: #fff;
 }
+
 .wrapper span:nth-child(1) {
   animation-delay: 120ms;
 }
+
 .wrapper span:nth-child(2) {
   animation-delay: 240ms;
 }
+
 .wrapper span:nth-child(3) {
   animation-delay: 360ms;
 }
+
 .wrapper span:nth-child(4) {
   animation-delay: 480ms;
 }
+
 .wrapper span:nth-child(5) {
   animation-delay: 600ms;
 }
+
 .wrapper span:nth-child(6) {
   animation-delay: 720ms;
 }
+
 .wrapper span:nth-child(7) {
   animation-delay: 840ms;
 }
@@ -129,14 +141,17 @@
   33% {
     text-shadow: 0 60px #f37121, 0 150px #f2aaaa;
   }
+
   50% {
     transform: translate(0, 0) rotate(-4deg);
     text-shadow: 0 0px #8fc0a9, 0 0px #84a9ac;
   }
+
   66.67% {
     text-shadow: 0 -60px #d54062, 0 -150px #8fc0a9;
   }
 }
+
 html {
   width: 100%;
   height: 100vh;
@@ -158,6 +173,7 @@ body {
     transform: scale(0.3, 0.3);
   }
 }
+
 @media screen and (max-width: 576px) {
   .wrapper span {
     font-size: 50px;

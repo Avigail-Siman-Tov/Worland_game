@@ -1,7 +1,7 @@
 table {
     border-collapse: collapse;
-    width: 100%;
-    margin-left: 70px;
+    width: 75%;
+    margin-left: 180px;
 }
 
 th,
@@ -12,9 +12,9 @@ td {
     font-size: 30px;
 }
 
-i {
-    font-size: 50px;
-}
+/* #icon11 #icon22 #icon33 {
+    font-size: 100px;
+} */
 
 #icon_title {
     font-family: 'Black Ops One', cursive;
@@ -23,6 +23,7 @@ i {
     margin-top: 20px;
 }
 
+/* Background picture */
 .img {
     top: 0%;
     width: 100%;
@@ -31,6 +32,8 @@ i {
     opacity: 30%;
 
 }
+
+/* the audio button */
 
 #button {
     font-size: 16px;
@@ -56,20 +59,15 @@ i {
 
 #tor {
     display: inline-block;
-    /* justify-content: space-between; */
     padding-right: 50px;
 
 }
 
 #my_answer {
     font-family: 'Black Ops One', cursive;
-    /* padding-left: 500px; */
     color: red;
     font-size: 40px;
     margin-top: 20px;
-
-
-    /* word-spacing: 20px; */
 }
 
 #correct_answer {
@@ -79,8 +77,10 @@ i {
     margin-top: 20px;
 }
 
+/* The button for another game */
 .btn:link,
 .btn:visited {
+
     font-family: 'Black Ops One', cursive;
     width: 200px;
     height: 40px;
