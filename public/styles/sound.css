@@ -1,0 +1,13 @@
+audio {
+    display: none;
+}
+
+
+
+#button.fade:hover {
+    opacity: 60%;
+}
+
+.fade {
+    opacity: 0.2;
+}
