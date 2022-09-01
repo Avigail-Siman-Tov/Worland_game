@@ -4,6 +4,7 @@ var level = 1;//Starting from level one
 
 const page = document.getElementById('allPage');
 var my_level = localStorage.getItem("levelPlay");//Gets the level the user selected
+
 //An array for icons that names their name and color
 const brands = [
   {
@@ -677,9 +678,13 @@ function game() {
       correct++;
       //If he finished the board in victory, that means he has five correct answers and the timer hasn't ended either, he is still at level one and the number of attempts of his drag is between 5 and 8 and no more than that, it means that his life is not over
       //So he moves him to the next stage, removes the icons of the successful board and presents him with 5 more icons
-      if (correct == 5 && (total >= 5 && total < 8) && level == 1) {
-        level = 2;
-        // console.log("level2");
+      if (correct == 5 && (total >= 5 && total < 8) && (level == 1 || level == 2)) {
+        if (level == 1) {
+          level = 2;
+        }
+        else {
+          level = 3;
+        }
         correct = 0;
         total = 0;
         draggableItems.style.opacity = 0;
@@ -699,36 +704,12 @@ function game() {
         }, 500);
 
       }
+      else {//Sends him to the victory page because after three screens of 5 icons without running out of disqualifications and the timer he wins
+        if (correct == 5 && (total >= 5 && total < 8) && level == 3) {
+          location.href = 'win';
 
-      else {
-        if (correct == 5 && (total >= 5 && total < 8) && level == 2) {
-          level = 3;
-          correct = 0;
-          total = 0;
-          draggableItems.style.opacity = 0;
-          matchingPairs.style.opacity = 0;
-          setTimeout(() => {
-            scoreSection.style.opacity = 0;
-          }, 100);
-          setTimeout(() => {
-            while (draggableItems.firstChild) draggableItems.removeChild(draggableItems.firstChild);
-            while (matchingPairs.firstChild) matchingPairs.removeChild(matchingPairs.firstChild);
-            initiateGame();
-            correctSpan.textContent = correct;
-            totalSpan.textContent = total;
-            draggableItems.style.opacity = 1;
-            matchingPairs.style.opacity = 1;
-            scoreSection.style.opacity = 1;
-          }, 500);
-        }
-        else {//Sends him to the victory page because after three screens of 5 icons without running out of disqualifications and the timer he wins
-          if (correct == 5 && (total >= 5 && total < 8) && level == 3) {
-            location.href = 'win';
-
-          }
         }
       }
-
     }
     else {//If he failed the game and lost
       var iconOfWord = `fab fa-${draggableElementBrand}`;//Saves us the name of the icon that got it wrong
@@ -779,30 +760,15 @@ function game() {
 function insertLocalStorge_mistake(num_ofLife) {
   localStorage.setItem("num_ofLife", JSON.stringify(num));
   if (num_ofLife == 1) {
-    localStorage.setItem("mistakes1_color", JSON.stringify(mistakes[0].color));
-    localStorage.setItem("icon1", JSON.stringify(mistakes[0].icon));
-    localStorage.setItem("mistake1", JSON.stringify(mistakes[0].mistake));
-    localStorage.setItem("good1", JSON.stringify(mistakes[0].good));
+    insertLocalStorge_mistake1();
   }
   if (num_ofLife == 2) {
-    localStorage.setItem("mistakes1_color", JSON.stringify(mistakes[0].color));
-    localStorage.setItem("icon1", JSON.stringify(mistakes[0].icon));
-    localStorage.setItem("mistake1", JSON.stringify(mistakes[0].mistake));
-    localStorage.setItem("good1", JSON.stringify(mistakes[0].good));
-    localStorage.setItem("mistakes2_color", JSON.stringify(mistakes[1].color));
-    localStorage.setItem("icon2", JSON.stringify(mistakes[1].icon));
-    localStorage.setItem("mistake2", JSON.stringify(mistakes[1].mistake));
-    localStorage.setItem("good2", JSON.stringify(mistakes[1].good));
+    insertLocalStorge_mistake1();
+    insertLocalStorge_mistake2();
   }
   if (num_ofLife == 3) {
-    localStorage.setItem("mistakes1_color", JSON.stringify(mistakes[0].color));
-    localStorage.setItem("icon1", JSON.stringify(mistakes[0].icon));
-    localStorage.setItem("mistake1", JSON.stringify(mistakes[0].mistake));
-    localStorage.setItem("good1", JSON.stringify(mistakes[0].good));
-    localStorage.setItem("mistakes2_color", JSON.stringify(mistakes[1].color));
-    localStorage.setItem("icon2", JSON.stringify(mistakes[1].icon));
-    localStorage.setItem("mistake2", JSON.stringify(mistakes[1].mistake));
-    localStorage.setItem("good2", JSON.stringify(mistakes[1].good));
+    insertLocalStorge_mistake1();
+    insertLocalStorge_mistake2();
     localStorage.setItem("mistakes3_color", JSON.stringify(mistakes[2].color));
     localStorage.setItem("icon3", JSON.stringify(mistakes[2].icon));
     localStorage.setItem("mistake3", JSON.stringify(mistakes[2].mistake));
@@ -810,6 +776,16 @@ function insertLocalStorge_mistake(num_ofLife) {
   }
 }
 
-
-
+function insertLocalStorge_mistake1() {
+  localStorage.setItem("mistakes1_color", JSON.stringify(mistakes[0].color));
+  localStorage.setItem("icon1", JSON.stringify(mistakes[0].icon));
+  localStorage.setItem("mistake1", JSON.stringify(mistakes[0].mistake));
+  localStorage.setItem("good1", JSON.stringify(mistakes[0].good));
+}
+function insertLocalStorge_mistake2() {
+  localStorage.setItem("mistakes2_color", JSON.stringify(mistakes[1].color));
+  localStorage.setItem("icon2", JSON.stringify(mistakes[1].icon));
+  localStorage.setItem("mistake2", JSON.stringify(mistakes[1].mistake));
+  localStorage.setItem("good2", JSON.stringify(mistakes[1].good));
+}
 
