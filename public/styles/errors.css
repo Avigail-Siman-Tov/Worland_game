@@ -12,9 +12,9 @@ td {
     font-size: 30px;
 }
 
-/* #icon11 #icon22 #icon33 {
-    font-size: 100px;
-} */
+i{
+    font-size: 50px;
+}
 
 #icon_title {
     font-family: 'Black Ops One', cursive;
@@ -31,30 +31,6 @@ td {
     position: absolute;
     opacity: 30%;
 
-}
-
-/* the audio button */
-
-#button {
-    font-size: 16px;
-    color: #eee;
-    position: absolute;
-    width: 50px;
-    padding: 15px;
-    top: 500px;
-    left: 1220px;
-    border: none;
-    border-radius: 2px;
-    outline: none;
-    background: rgb(199, 80, 100);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    opacity: 90%;
-    cursor: pointer;
-    transition: all 0.4s ease-out;
-}
-
-#button.fade:hover {
-    opacity: 60%;
 }
 
 #tor {

@@ -524,22 +524,16 @@ if (my_level == 1) {
 
       if (--timer < 0) {
         clearInterval(temp);
-        if(num==1){
-          insertLocalStorge_mistake1();
-        }
-        if(num==2){
-          insertLocalStorge_mistake1();
-          insertLocalStorge_mistake2();
-        }
-        location.href='game_over';
+        insertLocalStorge_mistake(num);
+        location.href = 'game_over';
       }
     }, 1000);
   }
 
   window.onload = function () {
-    var fiveMinutes = 60,
+    var minutes_game = 60,
       display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
+    startTimer(minutes_game, display);
   };
   $("#progressTimer").progressTimer({
     timeLimit: 60,
@@ -547,7 +541,7 @@ if (my_level == 1) {
     baseStyle: 'bg-warning progress-bar-striped progress-bar-animated',
     warningStyle: 'bg-danger progress-bar-striped progress-bar-animated',
     completeStyle: 'bg-info progress-bar-striped progress-bar-animated',
-});
+  });
   game();//Sends to the function that starts the game
 }
 //If the level is medium then sets the user's timer to 40 seconds and also the process bar
@@ -566,22 +560,16 @@ if (my_level == 2) {
 
       if (--timer < 0) {
         clearInterval(temp);
-        if(num==1){
-          insertLocalStorge_mistake1();
-        }
-        if(num==2){
-          insertLocalStorge_mistake1();
-          insertLocalStorge_mistake2();
-        }
-        location.href='game_over';
+        insertLocalStorge_mistake(num);
+        location.href = 'game_over';
       }
     }, 1000);
   }
 
   window.onload = function () {
-    var fiveMinutes = 40,
+    var minutes_game = 40,
       display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
+    startTimer(minutes_game, display);
   };
   console.log("after");
   $("#progressTimer").progressTimer({
@@ -590,7 +578,7 @@ if (my_level == 2) {
     baseStyle: 'bg-warning progress-bar-striped progress-bar-animated',
     warningStyle: 'bg-danger progress-bar-striped progress-bar-animated',
     completeStyle: 'bg-info progress-bar-striped progress-bar-animated',
-});
+  });
   game();//Sends to the function that starts the game
 }
 //If the level is difficult then sets the user's timer to 20 seconds and also the process bar
@@ -609,22 +597,16 @@ if (my_level == 3) {
 
       if (--timer < 0) {
         clearInterval(temp);
-        if(num==1){
-          insertLocalStorge_mistake1();
-        }
-        if(num==2){
-          insertLocalStorge_mistake1();
-          insertLocalStorge_mistake2();
-        }
-       location.href='game_over';
+        insertLocalStorge_mistake(num);
+        location.href = 'game_over';
       }
     }, 1000);
   }
 
   window.onload = function () {
-    var fiveMinutes = 20,
+    var minutes_game = 20,
       display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
+    startTimer(minutes_game, display);
   };
   $("#progressTimer").progressTimer({
     timeLimit: 20,
@@ -632,7 +614,7 @@ if (my_level == 3) {
     baseStyle: 'bg-warning progress-bar-striped progress-bar-animated',
     warningStyle: 'bg-danger progress-bar-striped progress-bar-animated',
     completeStyle: 'bg-info progress-bar-striped progress-bar-animated',
-});
+  });
   game();//Sends to the function that starts the game
 }
 //function of the game
@@ -705,19 +687,19 @@ function game() {
       event.target.classList.add("droppable-hover");
     }
   }
-//When the answer is correct then he leaves the icon there
+  //When the answer is correct then he leaves the icon there
   function dragOver(event) {
     if (event.target.classList && event.target.classList.contains("droppable") && !event.target.classList.contains("dropped")) {
       event.preventDefault();
     }
   }
-//When the answer is not correct then he has to stop the grinding and put it back in place
+  //When the answer is not correct then he has to stop the grinding and put it back in place
   function dragLeave(event) {
     if (event.target.classList && event.target.classList.contains("droppable") && !event.target.classList.contains("dropped")) {
       event.target.classList.remove("droppable-hover");
     }
   }
-//A function that when the user starts the drag actually starts the game
+  //A function that when the user starts the drag actually starts the game
   function drop(event) {
     event.preventDefault();
     event.target.classList.remove("droppable-hover");
@@ -725,7 +707,7 @@ function game() {
     const droppableElementBrand = event.target.getAttribute("data-brand");
     const isCorrectMatching = draggableElementBrand === droppableElementBrand;//Defines a match for me when the name of the icon is similar to the name of the text
     total++;//Increases the towing amount
-//If the match was successful,Increases the number of correct answers
+    //If the match was successful,Increases the number of correct answers
     if (isCorrectMatching) {
       const draggableElement = document.getElementById(draggableElementBrand);
       event.target.classList.add("dropped");
@@ -757,7 +739,7 @@ function game() {
         }, 500);
 
       }
-      
+
       else {
         if (correct == 5 && (total >= 5 && total < 8) && level == 2) {
           level = 3;
@@ -781,7 +763,7 @@ function game() {
         }
         else {//Sends him to the victory page because after three screens of 5 icons without running out of disqualifications and the timer he wins
           if (correct == 5 && (total >= 5 && total < 8) && level == 3) {
-           location.href='win';
+            location.href = 'win';
 
           }
         }
@@ -793,20 +775,20 @@ function game() {
       // let text2=draggableElementBrand;
       // let result=text1.concat(text2);
       // var iconOfWord = `<i class="fab fa-${draggableElementBrand}></i>`;
-     var iconOfWord=`fab fa-${draggableElementBrand}`;//Saves us the name of the icon that got it wrong
-    //  console.log(iconOfWord);
-   let colorIcon;
-   for( let t=0; t<brands.length; t++){
-    if(brands[t].iconName==draggableElementBrand){
-      colorIcon=brands[t].color;
-    }
-   }
-   let col= `color: ${colorIcon};`
-   //An array of user errors that has the correct icon, the incorrect answer, and the correct answer
+      var iconOfWord = `fab fa-${draggableElementBrand}`;//Saves us the name of the icon that got it wrong
+      //  console.log(iconOfWord);
+      let colorIcon;
+      for (let t = 0; t < brands.length; t++) {
+        if (brands[t].iconName == draggableElementBrand) {
+          colorIcon = brands[t].color;
+        }
+      }
+      let col = `color: ${colorIcon};`
+      //An array of user errors that has the correct icon, the incorrect answer, and the correct answer
       mistakes[num] = {
         // icon: "https://cdn0.iconfinder.com/data/icons/social-flat-rounded-rects/512/xbox-256.png",
-       icon: iconOfWord,
-       color:col,
+        icon: iconOfWord,
+        color: col,
         mistake: droppableElementBrand,
         good: draggableElementBrand
       };
@@ -816,12 +798,10 @@ function game() {
       element = document.getElementById("heart");
       element.remove();//takes his life
       if (num == 3) {//If he has three disqualifications then he saves me the mistakes in the localstorage and takes me to the game over page
-        insertLocalStorge_mistake1();
-        insertLocalStorge_mistake2();
-        insertLocalStorge_mistake3();
+        insertLocalStorge_mistake(num);
         // console.log("***********");
         // localStorage.setItem("mistakes1_color", JSON.stringify(mistakes[0].color));
-       location.href='game_over';
+        location.href = 'game_over';
       }
     }
 
@@ -846,23 +826,37 @@ function game() {
     return res;
   }
 }
-function insertLocalStorge_mistake1(){
-  localStorage.setItem("mistakes1_color", JSON.stringify(mistakes[0].color));
-  localStorage.setItem("icon1", JSON.stringify(mistakes[0].icon));
-  localStorage.setItem("mistake1", JSON.stringify(mistakes[0].mistake));
-  localStorage.setItem("good1", JSON.stringify(mistakes[0].good));
+function insertLocalStorge_mistake(num_ofLife) {
+  localStorage.setItem("num_ofLife", JSON.stringify(num));
+  if (num_ofLife == 1) {
+    localStorage.setItem("mistakes1_color", JSON.stringify(mistakes[0].color));
+    localStorage.setItem("icon1", JSON.stringify(mistakes[0].icon));
+    localStorage.setItem("mistake1", JSON.stringify(mistakes[0].mistake));
+    localStorage.setItem("good1", JSON.stringify(mistakes[0].good));
+  }
+  if (num_ofLife == 2) {
+    localStorage.setItem("mistakes1_color", JSON.stringify(mistakes[0].color));
+    localStorage.setItem("icon1", JSON.stringify(mistakes[0].icon));
+    localStorage.setItem("mistake1", JSON.stringify(mistakes[0].mistake));
+    localStorage.setItem("good1", JSON.stringify(mistakes[0].good));
+    localStorage.setItem("icon2", JSON.stringify(mistakes[1].icon));
+    localStorage.setItem("mistake2", JSON.stringify(mistakes[1].mistake));
+    localStorage.setItem("good2", JSON.stringify(mistakes[1].good));
+  }
+  if (num_ofLife == 3) {
+    localStorage.setItem("mistakes1_color", JSON.stringify(mistakes[0].color));
+    localStorage.setItem("icon1", JSON.stringify(mistakes[0].icon));
+    localStorage.setItem("mistake1", JSON.stringify(mistakes[0].mistake));
+    localStorage.setItem("good1", JSON.stringify(mistakes[0].good));
+    localStorage.setItem("icon2", JSON.stringify(mistakes[1].icon));
+    localStorage.setItem("mistake2", JSON.stringify(mistakes[1].mistake));
+    localStorage.setItem("good2", JSON.stringify(mistakes[1].good));
+    localStorage.setItem("icon3", JSON.stringify(mistakes[2].icon));
+    localStorage.setItem("mistake3", JSON.stringify(mistakes[2].mistake));
+    localStorage.setItem("good3", JSON.stringify(mistakes[2].good));
+  }
 }
-function insertLocalStorge_mistake2(){
- localStorage.setItem("icon2", JSON.stringify(mistakes[1].icon));
- localStorage.setItem("mistake2", JSON.stringify(mistakes[1].mistake));
- localStorage.setItem("good2", JSON.stringify(mistakes[1].good));
 
-}
-function insertLocalStorge_mistake3(){
- localStorage.setItem("icon3", JSON.stringify(mistakes[2].icon)); 
- localStorage.setItem("mistake3", JSON.stringify( mistakes[2].mistake));
- localStorage.setItem("good3", JSON.stringify(mistakes[2].good));
-}
 
 
 

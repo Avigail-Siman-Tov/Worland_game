@@ -136,7 +136,7 @@ body {
 
 }
 
-.yes a {
+.yes_again a {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
@@ -153,7 +153,7 @@ body {
     float: left;
 }
 
-.yes1 a {
+.error a {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
@@ -203,7 +203,7 @@ body {
 }
 
 
-.yes a:hover {
+.yes_again a:hover {
     -webkit-animation-name: animacao2;
     -webkit-animation-duration: 0.8s;
     -webkit-animation-timing-function: linear;
@@ -224,7 +224,7 @@ body {
 }
 
 
-.yes1 a:hover {
+.error a:hover {
     -webkit-animation-name: animacao2;
     -webkit-animation-duration: 0.8s;
     -webkit-animation-timing-function: linear;
