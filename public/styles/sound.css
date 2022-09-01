@@ -2,8 +2,6 @@ audio {
     display: none;
 }
 
-
-
 #button.fade:hover {
     opacity: 60%;
 }

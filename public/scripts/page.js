@@ -508,28 +508,27 @@ const brands = [
   }
 ];
 
+function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  var temp = setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + ":" + seconds;
+
+    if (--timer < 0) {
+      clearInterval(temp);
+      insertLocalStorge_mistake(num);
+      location.href = 'game_over';
+    }
+  }, 1000);
+}
+
 //If the level is easy then sets the user's timer to 60 seconds and also the process bar
 if (my_level == 1) {
-  // console.log("I am in level 1");
-  function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    var temp = setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = parseInt(timer % 60, 10);
-
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-
-      display.textContent = minutes + ":" + seconds;
-
-      if (--timer < 0) {
-        clearInterval(temp);
-        insertLocalStorge_mistake(num);
-        location.href = 'game_over';
-      }
-    }, 1000);
-  }
-
   window.onload = function () {
     var minutes_game = 60,
       display = document.querySelector('#time');
@@ -546,26 +545,6 @@ if (my_level == 1) {
 }
 //If the level is medium then sets the user's timer to 40 seconds and also the process bar
 if (my_level == 2) {
-  console.log("I am in level2");
-  function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    var temp = setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = parseInt(timer % 60, 10);
-
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-
-      display.textContent = minutes + ":" + seconds;
-
-      if (--timer < 0) {
-        clearInterval(temp);
-        insertLocalStorge_mistake(num);
-        location.href = 'game_over';
-      }
-    }, 1000);
-  }
-
   window.onload = function () {
     var minutes_game = 40,
       display = document.querySelector('#time');
@@ -583,26 +562,6 @@ if (my_level == 2) {
 }
 //If the level is difficult then sets the user's timer to 20 seconds and also the process bar
 if (my_level == 3) {
-  console.log("I am in level 3");
-  function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    var temp = setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = parseInt(timer % 60, 10);
-
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-
-      display.textContent = minutes + ":" + seconds;
-
-      if (--timer < 0) {
-        clearInterval(temp);
-        insertLocalStorge_mistake(num);
-        location.href = 'game_over';
-      }
-    }, 1000);
-  }
-
   window.onload = function () {
     var minutes_game = 20,
       display = document.querySelector('#time');
@@ -617,6 +576,7 @@ if (my_level == 3) {
   });
   game();//Sends to the function that starts the game
 }
+
 //function of the game
 function game() {
   let correct = 0;//A variable that stores the number of correct matches
@@ -771,12 +731,7 @@ function game() {
 
     }
     else {//If he failed the game and lost
-      // let text1="fab fa-";
-      // let text2=draggableElementBrand;
-      // let result=text1.concat(text2);
-      // var iconOfWord = `<i class="fab fa-${draggableElementBrand}></i>`;
       var iconOfWord = `fab fa-${draggableElementBrand}`;//Saves us the name of the icon that got it wrong
-      //  console.log(iconOfWord);
       let colorIcon;
       for (let t = 0; t < brands.length; t++) {
         if (brands[t].iconName == draggableElementBrand) {
@@ -786,21 +741,16 @@ function game() {
       let col = `color: ${colorIcon};`
       //An array of user errors that has the correct icon, the incorrect answer, and the correct answer
       mistakes[num] = {
-        // icon: "https://cdn0.iconfinder.com/data/icons/social-flat-rounded-rects/512/xbox-256.png",
         icon: iconOfWord,
         color: col,
         mistake: droppableElementBrand,
         good: draggableElementBrand
       };
-      // console.log(mistakes[0].color);
-      // localStorage.setItem("mistakes", JSON.stringify(mistakes[num].mistake+" "+mistakes[num].good));
       num++;//Brings up the mistakes
       element = document.getElementById("heart");
       element.remove();//takes his life
       if (num == 3) {//If he has three disqualifications then he saves me the mistakes in the localstorage and takes me to the game over page
         insertLocalStorge_mistake(num);
-        // console.log("***********");
-        // localStorage.setItem("mistakes1_color", JSON.stringify(mistakes[0].color));
         location.href = 'game_over';
       }
     }

@@ -1,10 +1,7 @@
-// const axios = require('axios').default;
-
 const express = require('express')
 const app = express()
 
 app.use(express.static('public'))
-// app.use('/', express.static('enter.ejs'))
 app.use(express.json())
 
 app.set('view engine', 'ejs')
