@@ -9,6 +9,7 @@ if (num_life == 1) {
     let sub_g1 = g1.substr(1, g1.length - 2);
     var element11 = document.createElement("i");//Creates an icon type element
     element11.className = localStorage.getItem("icon1").replace(/["]/g, '');//Inserting the icon-type element into the class and removing unnecessary quotation marks
+    element11.style=localStorage.getItem("mistakes1_color").replace(/["]/g, '');
     var answers1 = document.getElementById("icon11");//Defines and initializes a variable that will be inserted into the value in the HTML by its id
     answers1.append(element11);//Displays the icon on the screen Errors
     document.getElementById("mistake11").innerHTML = sub_mis1;//Shows me on the screen the text of the first mistake and the correct answer that corresponds to it
@@ -28,6 +29,7 @@ if (num_life == 2) {
     let sub_g2 = g2.substr(1, g2.length - 2);
     var element11 = document.createElement("i");//Creates an icon type element
     element11.className = localStorage.getItem("icon1").replace(/["]/g, '');//Inserting the icon-type element into the class and removing unnecessary quotation marks
+    element11.style=localStorage.getItem("mistakes1_color").replace(/["]/g, '');
     var answers1 = document.getElementById("icon11");//Defines and initializes a variable that will be inserted into the value in the HTML by its id
     answers1.append(element11);//Displays the icon on the screen Errors
     document.getElementById("mistake11").innerHTML = sub_mis1;//Shows me on the screen the text of the first mistake and the correct answer that corresponds to it
@@ -39,6 +41,7 @@ if (num_life == 2) {
     //A second icon for the second mistake
     var element22 = document.createElement("i");//Creates an icon type element
     element22.className = localStorage.getItem("icon2").replace(/["]/g, '');//Inserting the icon-type element into the class and removing unnecessary quotation marks
+    element22.style=localStorage.getItem("mistakes2_color").replace(/["]/g, '');
     var answers2 = document.getElementById("icon22");//Defines and initializes a variable that will be inserted into the value in the HTML by its id
     answers2.append(element22);//Displays the icon on the screen Errors
     document.getElementById("mistake22").innerHTML = sub_mis2;//Shows me on the screen the text of the second mistake and the correct answer that corresponds to it
@@ -63,6 +66,7 @@ if (num_life == 3) {
     let sub_g3 = g3.substr(1, g3.length - 2);
     var element11 = document.createElement("i");//Creates an icon type element
     element11.className = localStorage.getItem("icon1").replace(/["]/g, '');//Inserting the icon-type element into the class and removing unnecessary quotation marks
+    element11.style=localStorage.getItem("mistakes1_color").replace(/["]/g, '');
     var answers1 = document.getElementById("icon11");//Defines and initializes a variable that will be inserted into the value in the HTML by its id
     answers1.append(element11);//Displays the icon on the screen Errors
     document.getElementById("mistake11").innerHTML = sub_mis1;//Shows me on the screen the text of the first mistake and the correct answer that corresponds to it
@@ -74,6 +78,7 @@ if (num_life == 3) {
     //A second icon for the second mistake
     var element22 = document.createElement("i");//Creates an icon type element
     element22.className = localStorage.getItem("icon2").replace(/["]/g, '');//Inserting the icon-type element into the class and removing unnecessary quotation marks
+    element22.style=localStorage.getItem("mistakes2_color").replace(/["]/g, '');
     var answers2 = document.getElementById("icon22");//Defines and initializes a variable that will be inserted into the value in the HTML by its id
     answers2.append(element22);//Displays the icon on the screen Errors
     document.getElementById("mistake22").innerHTML = sub_mis2;//Shows me on the screen the text of the second mistake and the correct answer that corresponds to it
@@ -82,6 +87,7 @@ if (num_life == 3) {
     // Third icon for the third mistake
     var element33 = document.createElement("i");//Creates an icon type element
     element33.className = localStorage.getItem("icon3").replace(/["]/g, '');//Inserting the icon-type element into the class and removing unnecessary quotation marks
+    element33.style=localStorage.getItem("mistakes3_color").replace(/["]/g, '');
     var answers3 = document.getElementById("icon33");//Defines and initializes a variable that will be inserted into the value in the HTML by its id
     answers3.append(element33);//Displays the icon on the screen Errors
     document.getElementById("mistake33").innerHTML = sub_mis3;//Shows me on the screen the text of the third mistake and the correct answer that corresponds to it

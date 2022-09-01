@@ -839,6 +839,7 @@ function insertLocalStorge_mistake(num_ofLife) {
     localStorage.setItem("icon1", JSON.stringify(mistakes[0].icon));
     localStorage.setItem("mistake1", JSON.stringify(mistakes[0].mistake));
     localStorage.setItem("good1", JSON.stringify(mistakes[0].good));
+    localStorage.setItem("mistakes2_color", JSON.stringify(mistakes[1].color));
     localStorage.setItem("icon2", JSON.stringify(mistakes[1].icon));
     localStorage.setItem("mistake2", JSON.stringify(mistakes[1].mistake));
     localStorage.setItem("good2", JSON.stringify(mistakes[1].good));
@@ -848,9 +849,11 @@ function insertLocalStorge_mistake(num_ofLife) {
     localStorage.setItem("icon1", JSON.stringify(mistakes[0].icon));
     localStorage.setItem("mistake1", JSON.stringify(mistakes[0].mistake));
     localStorage.setItem("good1", JSON.stringify(mistakes[0].good));
+    localStorage.setItem("mistakes2_color", JSON.stringify(mistakes[1].color));
     localStorage.setItem("icon2", JSON.stringify(mistakes[1].icon));
     localStorage.setItem("mistake2", JSON.stringify(mistakes[1].mistake));
     localStorage.setItem("good2", JSON.stringify(mistakes[1].good));
+    localStorage.setItem("mistakes3_color", JSON.stringify(mistakes[2].color));
     localStorage.setItem("icon3", JSON.stringify(mistakes[2].icon));
     localStorage.setItem("mistake3", JSON.stringify(mistakes[2].mistake));
     localStorage.setItem("good3", JSON.stringify(mistakes[2].good));
