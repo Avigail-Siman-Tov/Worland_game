@@ -16,6 +16,8 @@ let sub_g3 = g3.substr(1, g3.length-2);//Cuts the incorrect and correct company 
 //First icon for the first mistake 
 var e=document.createElement("i");//Creates an icon type element
 e.className=localStorage.getItem("icon1").replace(/["]/g, '');//Inserting the icon-type element into the class and removing unnecessary quotation marks
+var f=localStorage.getItem("mistakes1_color");
+console.log(f);
 // console.log(e.className);
 // var z=document.createElement("i");
 // z.style.color=localStorage.getItem("mistakes1_color");
