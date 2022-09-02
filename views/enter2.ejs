@@ -6,7 +6,8 @@
     <link rel='stylesheet' type='text/css' media='screen' href='styles/enter2.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='styles/sound.css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
 </head>
 
 <body>
@@ -17,9 +18,13 @@
                 <h2 class="title animate glow delay-4 font-effect-shadow-multiple"> Choose a difficulty level</h2>
                 <br />
             </div>
-            <div class="level_easy animate glow delay-1" onclick="easy()"><button class="easy">Easy</button></div>
-            <div class="level_normal animate glow delay-2" onclick="normal()"><button class="normal">Normal</button></div>
-            <div class="level_hard animate glow delay-3" onclick="hard()"><button class="hard">Hard</button></div>
+
+             <div class="flex-container">
+               <div onclick="easy()"><button class="round-button zoom500 level_easy animate glow delay-1"> easy</button></div>
+                <div onclick="normal()"><button class="round-button zoom500 level_normal animate glow delay-2">normal</button></div>
+                <div onclick="hard()"><button class="round-button zoom500 level_hard animate glow delay-3">hard</button></div>
+            </div>
+
             <audio src="music.mp3"></audio>
             <button id="button">
                 <i class="fas fa-volume-up"></i>
