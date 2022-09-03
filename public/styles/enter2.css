@@ -13,8 +13,7 @@ body {
   
 
 }
-/* .txt--gradient-orange         { background-image:linear-gradient(to right, #ffbf02, #ed0082); color:rgba(0, 0, 0, 0); -webkit-background-clip:text; background-clip:text; position:relative; }
- */
+
 #easy{
   border: 25px solid rgba(224, 246, 98, 0.5);
 }
@@ -98,8 +97,6 @@ body {
   animation-name: animate-fade;
   animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
   animation-fill-mode: backwards;
-  /* justify-content: space-between; */
-
 }
 
 /* Glow In */
