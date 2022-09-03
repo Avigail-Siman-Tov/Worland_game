@@ -10,10 +10,20 @@ body {
   margin-top: 60px;
   text-align: center;
   margin-left: 200px;
+  
 
 }
-
-<<<<<<< Updated upstream
+/* .txt--gradient-orange         { background-image:linear-gradient(to right, #ffbf02, #ed0082); color:rgba(0, 0, 0, 0); -webkit-background-clip:text; background-clip:text; position:relative; }
+ */
+#easy{
+  border: 25px solid rgba(224, 246, 98, 0.5);
+}
+#normal{
+  border: 25px solid rgba(246, 192, 98, 0.5);
+}
+#hard{
+  border: 25px solid rgba(246, 98, 98, 0.5);
+}
 .level_easy {
   padding: 30px;
   transform: translate(0%, 0%);
@@ -28,8 +38,6 @@ body {
   transform: translate(0%, 0%);
   padding: 30px;
 }
-=======
->>>>>>> Stashed changes
 
 .container {
   position: fixed;
@@ -130,7 +138,6 @@ body {
   animation-delay: 1s;
 }
 
-<<<<<<< Updated upstream
 .flex-container {
   display: flex;
   flex-wrap: nowrap;
@@ -144,62 +151,46 @@ body {
 
 
 .round-button {
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   padding: 10px;
   font-family: 'Black Ops One', cursive;
-  border: 25px solid rgba(205, 133, 63, 0.5);
   border-radius: 50%;
   box-shadow: inset 0 0 0.1em rgba(0, 0, 0, 0.3), 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
-=======
-
-.round-button {
-  display: flex;
-  padding: 0.3em;
-  font-family: 'Open Sans', sans-serif;
-  color: rgba(205,133,63,0.5);
-  background-color: #a0522d;
-  border: 0.25em solid rgba(205,133,63,0.5);
-  border-radius: 50%;
-  box-shadow: inset 0 0 0.1em rgba(0,0,0,0.3), 0 0.5rem 2rem rgba(0,0,0,0.3);
->>>>>>> Stashed changes
   cursor: pointer;
   outline: none;
   transition: all 0.2s linear;
   transition-property: translate box-shadow;
-<<<<<<< Updated upstream
   font-size: 30px;
 
 }
 
-=======
-}
->>>>>>> Stashed changes
-.round-button:focus,
-.round-button:hover {
-  border-color: #ffa500;
+#easy:focus,
+#easy:hover {
+  border-color:yellow;
   transform: translateY(-0.1rem);
 }
-<<<<<<< Updated upstream
-
+#normal:focus,
+#normal:hover {
+  border-color:orange;
+  transform: translateY(-0.1rem);
+}
+#hard:focus,
+#hard:hover {
+  border-color:red;
+  transform: translateY(-0.1rem);
+}
 .round-button:active {
   box-shadow: inset 0 0 0.1em rgba(0, 0, 0, 0.3);
   transform: translateY(0.05em);
 }
 
-=======
-.round-button:active {
-  box-shadow: inset 0 0 0.1em rgba(0,0,0,0.3);
-  transform: translateY(0.05em);
-}
->>>>>>> Stashed changes
 .round-button::before {
   content: '';
   display: inline-block;
   vertical-align: middle;
   padding-top: 100%;
 }
-<<<<<<< Updated upstream
 
 .round-button * {
   margin: auto;
@@ -208,33 +199,3 @@ body {
 * {
   box-sizing: border-box;
 }
-=======
-.round-button * {
-  margin: auto;
-}
-.round-button svg {
-  height: 1em;
-  width: 1em;
-  fill: rgba(205,133,63,0.5);
-}
-* {
-  box-sizing: border-box;
-}
-
-
-.sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  white-space: nowrap;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-:root .zoom500 {
-  font-size: 500%;
-}
-
->>>>>>> Stashed changes
