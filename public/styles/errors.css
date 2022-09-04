@@ -1,3 +1,6 @@
+
+/* table of errors */
+
 table {
     border-collapse: collapse;
     width: 75%;
@@ -18,7 +21,6 @@ i{
 
 #icon_title {
     font-family: 'Black Ops One', cursive;
-    /* padding-left: 500px; */
     font-size: 40px;
     margin-top: 20px;
 }

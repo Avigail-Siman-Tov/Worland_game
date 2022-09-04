@@ -4,7 +4,7 @@ var ctx = canvas.getContext("2d");
 ctx.font = "130px Ariel";
 ctx.fillStyle = "red";
 ctx.textAlign = "center";
-ctx.fillText("Hello World", canvas.width/2, canvas.height/2);
+ctx.fillText("Hello World", canvas.width / 2, canvas.height / 2);
 
 var W = window.innerWidth;
 var H = window.innerHeight;
@@ -51,6 +51,7 @@ function Shape() {
   };
 }
 
+//the loop create the circles
 for (var i = 0; i < 500; i++) {
   var circle = new Shape();
   circle.init(
@@ -68,6 +69,7 @@ function main() {
   requestAnimFrame(main);
 }
 
+//the function draw the circles
 function render() {
   for (var i = circles.length - 1; i >= 0; i--) {
     circles[i].draw();
@@ -93,8 +95,9 @@ function update() {
     }
   }
 }
+//the function send to enter page
 function delay() {
-  location.href='/';
+  location.href = '/';
 }
 main();
 

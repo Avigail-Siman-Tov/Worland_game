@@ -10,8 +10,6 @@ body {
   margin-top: 60px;
   text-align: center;
   margin-left: 200px;
-  
-
 }
 
 #easy{
@@ -23,6 +21,7 @@ body {
 #hard{
   border: 25px solid rgba(246, 98, 98, 0.5);
 }
+
 .level_easy {
   padding: 30px;
   transform: translate(0%, 0%);
@@ -159,7 +158,6 @@ body {
   transition: all 0.2s linear;
   transition-property: translate box-shadow;
   font-size: 30px;
-
 }
 
 #easy:focus,

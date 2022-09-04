@@ -1,9 +1,9 @@
-var mistakes = [];//Setting up an array for user errors
-var num = 0;//Resets the user's mistakes to zero
-var level = 1;//Starting from level one
+var mistakes = [];                                       //Setting up an array for user errors
+var num = 0;                                            //Resets the user's mistakes to zero
+var level = 1;                                         //Starting from page one to complete
 
 const page = document.getElementById('allPage');
-var my_level = localStorage.getItem("levelPlay");//Gets the level the user selected
+var my_level = localStorage.getItem("levelPlay");    //Gets the level the user selected
 
 //An array for icons that names their name and color
 const brands = [
@@ -509,6 +509,7 @@ const brands = [
   }
 ];
 
+//The function activates a timer and displays it on the screen 
 function startTimer(duration, display) {
   var timer = duration, minutes, seconds;
   var temp = setInterval(function () {
@@ -520,6 +521,7 @@ function startTimer(duration, display) {
 
     display.textContent = minutes + ":" + seconds;
 
+    //If time runs out and we haven't won, we'll go to the game over screen 
     if (--timer < 0) {
       clearInterval(temp);
       insertLocalStorge_mistake(num);
@@ -535,6 +537,7 @@ if (my_level == 1) {
       display = document.querySelector('#time');
     startTimer(minutes_game, display);
   };
+  //timer of progress Timer
   $("#progressTimer").progressTimer({
     timeLimit: 60,
     warningThreshold: 10,
@@ -542,7 +545,7 @@ if (my_level == 1) {
     warningStyle: 'bg-danger progress-bar-striped progress-bar-animated',
     completeStyle: 'bg-info progress-bar-striped progress-bar-animated',
   });
-  game();//Sends to the function that starts the game
+  game();                                                              //Sends to the function that starts the game
 }
 //If the level is medium then sets the user's timer to 40 seconds and also the process bar
 if (my_level == 2) {
@@ -552,6 +555,7 @@ if (my_level == 2) {
     startTimer(minutes_game, display);
   };
   console.log("after");
+  //timer of progress Timer
   $("#progressTimer").progressTimer({
     timeLimit: 40,
     warningThreshold: 10,
@@ -568,6 +572,7 @@ if (my_level == 3) {
       display = document.querySelector('#time');
     startTimer(minutes_game, display);
   };
+  //timer of progress Timer
   $("#progressTimer").progressTimer({
     timeLimit: 20,
     warningThreshold: 10,
@@ -580,10 +585,10 @@ if (my_level == 3) {
 
 //function of the game
 function game() {
-  let correct = 0;//A variable that stores the number of correct matches
-  let total = 0;//A variable that stores all the adjustments the user has made, including the correct ones and the ones that are not
-  const totalDraggableItems = 5;
-  const totalMatchingPairs = 5; // Should be <= totalDraggableItems
+  let correct = 0;                                                           //A variable that stores the number of correct matches
+  let total = 0;      //A variable that stores all the adjustments the user has made, including the correct ones and the ones that are not
+  const totalDraggableItems = 5;                                            //Draggable Items
+  const totalMatchingPairs = 5;                                            // Should be <= totalDraggableItems
 
   const scoreSection = document.querySelector(".score");
   const correctSpan = scoreSection.querySelector(".correct");
@@ -596,11 +601,13 @@ function game() {
 
   initiateGame();
 
+  //The function will start the game
   function initiateGame() {
     //Grill 5 random icons and their corresponding names
     const randomDraggableBrands = generateRandomItemsArray(totalDraggableItems, brands);
     const randomDroppableBrands = totalMatchingPairs < totalDraggableItems ? generateRandomItemsArray(totalMatchingPairs, randomDraggableBrands) : randomDraggableBrands;
-    const alphabeticallySortedRandomDroppableBrands = [...randomDroppableBrands].sort((a, b) => a.brandName.toLowerCase().localeCompare(b.brandName.toLowerCase()));
+    //Alphabetically Sorted Random Droppable Brands
+    const SortRandomDroppableBrands = [...randomDroppableBrands].sort((a, b) => a.brandName.toLowerCase().localeCompare(b.brandName.toLowerCase()));
 
     // Create "draggable-items" and append to DOM
     for (let i = 0; i < randomDraggableBrands.length; i++) {
@@ -611,11 +618,11 @@ function game() {
     }
 
     // Create "matching-pairs" and append to DOM
-    for (let i = 0; i < alphabeticallySortedRandomDroppableBrands.length; i++) {
+    for (let i = 0; i < SortRandomDroppableBrands.length; i++) {
       matchingPairs.insertAdjacentHTML("beforeend", `
       <div class="matching-pair">
-        <span class="label">${alphabeticallySortedRandomDroppableBrands[i].brandName}</span>
-        <span class="droppable" data-brand="${alphabeticallySortedRandomDroppableBrands[i].iconName}"></span>
+        <span class="label">${SortRandomDroppableBrands[i].brandName}</span>
+        <span class="droppable" data-brand="${SortRandomDroppableBrands[i].iconName}"></span>
       </div>
     `);
     }
@@ -623,9 +630,11 @@ function game() {
     draggableElements = document.querySelectorAll(".draggable");
     droppableElements = document.querySelectorAll(".droppable");
 
+    //for each draggable Elements where we drag it lisen to drag start
     draggableElements.forEach(elem => {
       elem.addEventListener("dragstart", dragStart);
     });
+
     // Sending to all the functions related to dragging, starting the dragging and leaving
     droppableElements.forEach(elem => {
       elem.addEventListener("dragenter", dragEnter);
@@ -664,16 +673,17 @@ function game() {
   function drop(event) {
     event.preventDefault();
     event.target.classList.remove("droppable-hover");
-    const draggableElementBrand = event.dataTransfer.getData("text");
-    const droppableElementBrand = event.target.getAttribute("data-brand");
+    const draggableElementBrand = event.dataTransfer.getData("text");           //the good text mathing to the icon
+    const droppableElementBrand = event.target.getAttribute("data-brand");     //the matching bad to the icon
     const isCorrectMatching = draggableElementBrand === droppableElementBrand;//Defines a match for me when the name of the icon is similar to the name of the text
-    total++;//Increases the towing amount
+    total++;                                                                 //Increases the towing amount
     //If the match was successful,Increases the number of correct answers
     if (isCorrectMatching) {
       const draggableElement = document.getElementById(draggableElementBrand);
       event.target.classList.add("dropped");
       draggableElement.classList.add("dragged");
       draggableElement.setAttribute("draggable", "false");
+      //Pinning the correct icon in place
       event.target.innerHTML = `<i class="fab fa-${draggableElementBrand}" style="color: ${draggableElement.style.color};"></i>`;
       correct++;
       //If he finished the board in victory, that means he has five correct answers and the timer hasn't ended either, he is still at level one and the number of attempts of his drag is between 5 and 8 and no more than that, it means that his life is not over
@@ -685,6 +695,7 @@ function game() {
         else {
           level = 3;
         }
+        //initializing all the data again
         correct = 0;
         total = 0;
         draggableItems.style.opacity = 0;
@@ -692,10 +703,12 @@ function game() {
         setTimeout(() => {
           scoreSection.style.opacity = 0;
         }, 100);
+        //Showing a new game screen again on the screen and 
         setTimeout(() => {
           while (draggableItems.firstChild) draggableItems.removeChild(draggableItems.firstChild);
           while (matchingPairs.firstChild) matchingPairs.removeChild(matchingPairs.firstChild);
           initiateGame();
+          //Writing the number of correct adjustments from the number of adjustments made
           correctSpan.textContent = correct;
           totalSpan.textContent = total;
           draggableItems.style.opacity = 1;
@@ -707,13 +720,13 @@ function game() {
       else {//Sends him to the victory page because after three screens of 5 icons without running out of disqualifications and the timer he wins
         if (correct == 5 && (total >= 5 && total < 8) && level == 3) {
           location.href = 'win';
-
         }
       }
     }
-    else {//If he failed the game and lost
+    else {                                               //If he failed the game and lost
       var iconOfWord = `fab fa-${draggableElementBrand}`;//Saves us the name of the icon that got it wrong
       let colorIcon;
+      //the loop save the color of the icon to match
       for (let t = 0; t < brands.length; t++) {
         if (brands[t].iconName == draggableElementBrand) {
           colorIcon = brands[t].color;
@@ -727,15 +740,17 @@ function game() {
         mistake: droppableElementBrand,
         good: draggableElementBrand
       };
-      num++;//Brings up the mistakes
+      num++;
       element = document.getElementById("heart");
-      element.remove();//takes his life
-      if (num == 3) {//If he has three disqualifications then he saves me the mistakes in the localstorage and takes me to the game over page
+      element.remove();
+      //If he has three disqualifications then he saves me the mistakes in the localstorage and takes me to the game over page                                  //takes his life
+      if (num == 3) {
         insertLocalStorge_mistake(num);
         location.href = 'game_over';
       }
     }
 
+     //Writing the number of correct adjustments from the number of adjustments made
     scoreSection.style.opacity = 0;
     setTimeout(() => {
       correctSpan.textContent = correct;
@@ -744,28 +759,34 @@ function game() {
     }, 200);
   }
 
-  // Auxiliary functions
+  //the function generate array with 5 item with random 5 item from brands array
   function generateRandomItemsArray(n, originalArray) {
     let res = [];
     let clonedArray = [...originalArray];
     if (n > clonedArray.length) n = clonedArray.length;
+    //the loop random from brands array
     for (let i = 1; i <= n; i++) {
       const randomIndex = Math.floor(Math.random() * clonedArray.length);
-      res.push(clonedArray[randomIndex]);
-      clonedArray.splice(randomIndex, 1);
+      res.push(clonedArray[randomIndex]);              //push item random to array
+      clonedArray.splice(randomIndex, 1);             //add item to the array
     }
     return res;
   }
 }
+
+//the function insert to LocalStorge the all mistakes
 function insertLocalStorge_mistake(num_ofLife) {
   localStorage.setItem("num_ofLife", JSON.stringify(num));
+  //if you have one mistake insert to local one mistake
   if (num_ofLife == 1) {
     insertLocalStorge_mistake1();
   }
+    //if you have two mistake insert to local two mistakes
   if (num_ofLife == 2) {
     insertLocalStorge_mistake1();
     insertLocalStorge_mistake2();
   }
+    //if you have three mistake insert to local three mistakes
   if (num_ofLife == 3) {
     insertLocalStorge_mistake1();
     insertLocalStorge_mistake2();
@@ -776,12 +797,15 @@ function insertLocalStorge_mistake(num_ofLife) {
   }
 }
 
+//the function  insert to LocalStorge the one mistake
 function insertLocalStorge_mistake1() {
   localStorage.setItem("mistakes1_color", JSON.stringify(mistakes[0].color));
   localStorage.setItem("icon1", JSON.stringify(mistakes[0].icon));
   localStorage.setItem("mistake1", JSON.stringify(mistakes[0].mistake));
   localStorage.setItem("good1", JSON.stringify(mistakes[0].good));
 }
+
+//the function insert to LocalStorge the two mistakes
 function insertLocalStorge_mistake2() {
   localStorage.setItem("mistakes2_color", JSON.stringify(mistakes[1].color));
   localStorage.setItem("icon2", JSON.stringify(mistakes[1].icon));

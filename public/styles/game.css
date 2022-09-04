@@ -9,9 +9,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: transparent;
-  /* background-color: #eee; */
   color: #111;
-
 }
 
 .score {
@@ -26,49 +24,16 @@ body {
   transition: opacity 0.2s;
 }
 
-#play-again-btn {
-  position: absolute;
-  top: -0.5rem;
-  left: 50%;
-  margin-left: -50px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  background-color: #111;
-  border: 5px double #fff;
-  border-radius: 14px;
-  padding: 8px 10px;
-  outline: none;
-  letter-spacing: .05em;
-  cursor: pointer;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.5s, transform 0.5s, background-color 0.2s;
-}
-
-#play-again-btn:hover {
-  background-color: #333;
-}
-
-#play-again-btn:active {
-  background-color: #555;
-}
-
-#play-again-btn.play-again-btn-entrance {
-  opacity: 1;
-  transform: translateX(6rem);
-}
-
+/* the location of icon on the screen */
 .draggable-items {
-
   top: 700px;
   display: flex;
   justify-content: center;
   margin: -150px 1rem 1.5rem 1rem;
   transition: opacity 0.5s;
-
 }
 
+/* the icon styles */
 .draggable {
   height: 5rem;
   width: 5rem;
@@ -86,6 +51,7 @@ body {
   opacity: 0.5;
 }
 
+/* the square to match */
 .matching-pairs {
   display: flex;
   justify-content: center;
@@ -94,6 +60,7 @@ body {
 
 }
 
+/* space between squares to match */
 .matching-pair {
   height: 6rem;
   width: 22rem;
@@ -112,6 +79,7 @@ body {
   user-select: none;
 }
 
+/* the text of social networks */
 .label {
   width: 4.5rem;
   margin-top: 15px;
@@ -120,6 +88,7 @@ body {
 
 }
 
+/* The whole square with the lines */
 .droppable {
   width: 6rem;
   font-size: 4rem;
@@ -151,14 +120,6 @@ body {
   html {
     font-size: 14px;
   }
-
-  #play-again-btn {
-    top: -0.4rem;
-  }
-
-  #play-again-btn.play-again-btn-entrance {
-    transform: translateX(7rem);
-  }
 }
 
 #demo {
@@ -166,6 +127,7 @@ body {
   left: 0 px;
 }
 
+/* image baground */
 .img {
   width: 100%;
   height: 100%;
@@ -180,6 +142,7 @@ body {
 
 }
 
+/* the button of audio */
 #button {
   font-size: 16px;
   color: #eee;
@@ -206,6 +169,7 @@ body {
   display: inline-block;
 }
 
+/* the live in game */
 #heart {
   position: relative;
   width: 65px;
@@ -241,11 +205,11 @@ body {
   margin-top: 10%;
 }
 
+/* progress of timer */
 #progressTimer {
   width: 250px;
   margin-top: 10px;
   height: 5px;
-  /* height: 20px !important; */
 }
 
 #time {

@@ -1,31 +1,33 @@
-
-body{
-  width:100%; 
-  overflow:hidden;
-  margin:0;
-  cursor:pointer;
+body {
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  cursor: pointer;
 }
-h1{
+
+h1 {
   left: 50%;
   position: absolute;
   top: 30%;
-  transform: translate( -50%, -50%);
-  font-size:5em;
+  transform: translate(-50%, -50%);
+  font-size: 5em;
   font-family: 'Kaushan Script', cursive;
-  -webkit-text-stroke: 1px hsla(0,0%,0%,.3);
-  color:pink;
+  -webkit-text-stroke: 1px hsla(0, 0%, 0%, .3);
+  color: pink;
 }
-h2{
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate( -50%, -50%);
-    font-size:4em;
-    font-family: 'Kaushan Script', cursive;
-    -webkit-text-stroke: 1px hsla(0,0%,0%,.3);
-    color:pink;
-  }
+
+h2 {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  font-family: 'Kaushan Script', cursive;
+  -webkit-text-stroke: 1px hsla(0, 0%, 0%, .3);
+  color: pink;
+}
+
 canvas {
-    display:block;
-    margin:0 auto;
+  display: block;
+  margin: 0 auto;
 }

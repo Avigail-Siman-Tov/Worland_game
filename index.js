@@ -13,8 +13,8 @@ app.get('/', (req,res) => {
 app.get('/enter2', (req,res) => {
     res.render('enter2');        
 });
-app.get('/page', (req,res) => {
-    res.render('page');        
+app.get('/game', (req,res) => {
+    res.render('game');        
 });
 app.get('/game_over', (req,res) => {
     res.render('game_over');        

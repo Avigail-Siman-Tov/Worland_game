@@ -11,7 +11,7 @@ button.addEventListener("click", () => {
     icon.classList.remove("fa-volume-mute");
     icon.classList.add("fa-volume-up");
   } 
-  else {          //And vice versa when he clicks on the audio when it's on he stops the audio and changes the icon
+  else {  //And vice versa when he clicks on the audio when it's on he stops the audio and changes the icon
     audio.pause();
     icon.classList.remove("fa-volume-up");
     icon.classList.add("fa-volume-mute");
