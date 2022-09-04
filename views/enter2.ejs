@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+
 </head>
 
 <body>
@@ -15,7 +16,7 @@
         <div class='container projects'>
             <img src="images/back.jpg" class="img">
             <div class="background">
-                <h2 class=" font-effect-shadow-multiple title animate glow delay-4"> Choose a difficulty level</h2>
+                <h2 class="title animate glow delay-4 txt--gradient-orange"> Choose a difficulty level</h2>
                 <br />
             </div>
             <!-- button of level choose -->
@@ -28,6 +29,20 @@
                         id="hard">hard</button>
                 </div>
             </div>
+            <!-- instraction of game -->
+            <div id="actionBtn" class="action-button">
+                <div class="action-button-content">
+                    <div class="action-button-content-inner">
+                        <h2>Game Instructions</h2>
+                        <p class="text_level"> You have to match an icon with the word that corresponds to it.
+                            You must complete 3 boards with the possibility of 3 disqualifications until success.</p>
+                        <div class="text_level">There are three levels:</div>
+                        <div class="text_level"> Easy level - playing time is 60 seconds.</div>
+                        <div class="text_level"> Normal level - the playing time is 40 seconds</div>
+                        <div class="text_level"> Hard level - the game time is 20 seconds.</div>
+                    </div>
+                </div>
+            </div>
             <!-- audio in project -->
             <audio src="music.mp3"></audio>
             <button id="button">
@@ -35,6 +50,7 @@
             </button>
             <script src="scripts/sounds.js"></script>
             <script src="scripts/level.js"></script>
+            <script src="scripts/enter2.js"></script>
         </div>
     </div>
 
