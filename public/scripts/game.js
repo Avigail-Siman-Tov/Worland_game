@@ -554,7 +554,6 @@ if (my_level == 2) {
       display = document.querySelector('#time');
     startTimer(minutes_game, display);
   };
-  console.log("after");
   //timer of progress Timer
   $("#progressTimer").progressTimer({
     timeLimit: 40,
