@@ -14,5 +14,13 @@
   "description": "ant_game",
   "version": "1.0.0",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Avigail-Siman-Tov/Worland_game.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Avigail-Siman-Tov/Worland_game/issues"
+  },
+  "homepage": "https://github.com/Avigail-Siman-Tov/Worland_game#readme"
 }
