@@ -13,6 +13,9 @@ app.get('/', (req,res) => {
 app.get('/enter2', (req,res) => {
     res.render('enter2');        
 });
+app.get('/animation_go', (req,res) => {
+    res.render('animation_go');        
+});
 app.get('/game', (req,res) => {
     res.render('game');        
 });
